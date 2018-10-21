@@ -4,16 +4,6 @@ function [loadon,battcharge,batton] = fcn(SOC)
 loadon=1;
 battcharge=0;
 batton=0;
-if (SOC>=235)  % if DC Voltage is greater than 235 V Disconnect battery
-    loadon=1;  %  from PV-system
-    batton=0;
-    battcharge=1;
-end
-if (SOC<230) % if DC voltage is below 230V connect battery to PV-system
-    loadon=1;
-    batton=1;
-    battcharge=0;
-end
 if (SOC>=20) % charge battery when the SOC is greater than 20 %
     loadon=1;
     battcharge=1;
