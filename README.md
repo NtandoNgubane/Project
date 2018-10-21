@@ -1,1 +1,3 @@
-# Project
+#  Research Project
+# Tittle:DESIGN AND PERFORMANCE ANALYSIS OF A STAND-ALONE SOLAR PV BATTERY SYSTEM WITH CONTROLLER FOR AN UN-ELECTRIFIED VILLAGE
+# algorithm for P&O Controller and SOC Charge controller 
