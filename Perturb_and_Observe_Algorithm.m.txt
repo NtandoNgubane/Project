@@ -1,0 +1,40 @@
+%This code impliments the Perturb and Observe algorithm.
+%it was sourced from EEE world on youtube video and modified. 
+%link: https://www.youtube.com/watch?v=6bZla7J4wz0&list=LLwVna-4AQ-FCjOjEW3MMVkw&index=22&t=0s 
+function D = TANDO(Vpv,Ipv)
+% internal value of voltage
+persistent Dprev Pprev Vprev
+% initialise values
+if isempty(Dprev)
+    Dprev=0.6;
+    Vprev =100;
+    Pprev =200;
+end
+
+% initialise algorithm parameters
+delD = 0.001;
+%Calculate array power
+Ppv = Vpv*Ipv;
+% conditions for changing duty cycle
+if (Ppv-Pprev)~= 0
+    if (Ppv-Pprev) > 0
+        if (Vpv-Vprev) > 0
+            D = Dprev-delD;
+        else
+            D = Dprev+delD;
+        end
+    else
+        if (Vpv-Vprev)>0
+            D = Dprev+delD;
+        else 
+            D = Dprev-delD;
+        end
+    end
+else
+    D= Dprev;
+end
+Dprev=D;
+Vprev =Vpv;
+Pprev = Ppv;
+            
+ 
